@@ -50,6 +50,7 @@ def sendemail(from_addr, to_addr_list, cc_addr_list,
 
 
 arduino = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=3.0)
+# arduino = serial.Serial('/dev/cu.usbmodemFA131', baudrate=9600, timeout=3.0)
 # arduino.open()
 txt = '0' # Valor recibido del arduino (Char[])
 valor = 0 # Valor para comparar (Int), es igual a txt
@@ -87,8 +88,12 @@ while True:
             file = open("estado_puerta.txt","w")
             
             file.write("cerrada")
-             
+            
             file.close() 
+            
+            archivo = open ("desconocido.txt","w")
+            archivo.write("desconocido")
+            archivo.close
             
          
     
