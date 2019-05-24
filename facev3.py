@@ -58,8 +58,8 @@ def actualizarYML():
 	faceCascade = cv2.CascadeClassifier(cascPath)
 
 	#reconocimiento con opencv
-	# reconocimiento = cv2.createLBPHFaceRecognizer()
-	reconocimiento = cv2.face.LBPHFaceRecognizer_create()
+	reconocimiento = cv2.createLBPHFaceRecognizer()
+	# reconocimiento = cv2.face.LBPHFaceRecognizer_create()
 
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -118,10 +118,10 @@ def reconocer():
 	eyeCascade = cv2.CascadeClassifier("Cascades/haarcascade_eye.xml")
 	smileCascade = cv2.CascadeClassifier("Cascades/haarcascade_smile.xml")
 
-	# reconocimiento = cv2.createLBPHFaceRecognizer()
-	reconocimiento = cv2.face.LBPHFaceRecognizer_create()
-	# reconocimiento.load("nuevosdatos.yml")
-	reconocimiento.read("nuevosdatos.yml")
+	reconocimiento = cv2.createLBPHFaceRecognizer()
+	# reconocimiento = cv2.face.LBPHFaceRecognizer_create()
+	reconocimiento.load("nuevosdatos.yml")
+	# reconocimiento.read("nuevosdatos.yml")
 
 	etiquetas = {"nombre_persona": 1}
 	with open("labels.pickle",'rb') as f:
@@ -167,8 +167,8 @@ def reconocer():
 
 				color = (255,255,255)
 				grosor = 2
-				# cv2.putText(marco, nombre, (x,y), font, 1, color, grosor, cv2.CV_AA)
-				cv2.putText(marco, nombre, (x,y), font, 1, color, grosor, cv2.LINE_AA)
+				cv2.putText(marco, nombre, (x,y), font, 1, color, grosor, cv2.CV_AA)
+				# cv2.putText(marco, nombre, (x,y), font, 1, color, grosor, cv2.LINE_AA)
 				persona = nombre
 				intruso()
 				return persona
